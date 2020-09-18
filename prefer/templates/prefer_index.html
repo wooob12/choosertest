@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/prefer_index.css'%}">
+    <!-- Bootstrap core CSS -->
+  <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>Chooser - 취향목록</title>
+</head>
+<body>
+    
+    {% if user.is_authenticated %}
+
+    <a href="{% url 'logout' %}">
+        <button>로그아웃</button>
+    </a>
+
+    안녕하세요! {{user}}님!
+
+    {% else %}
+
+    <a href="{% url 'signup' %}">
+        <button>회원가입</button>
+    </a>
+
+    <a href="{% url 'login' %}">
+        <button>로그인</button>
+    </a>
+
+    {% endif %}
+    
+    <!-- 버튼 -->
+    {% if user.is_authenticated %}
+    <div class="make_prefer">
+        <a href="{% url 'prefer_create' %}">
+        <div class="plus_btn">
+            <button>글쓰기</button>
+        </div>
+        </a>
+    </div>
+    {% endif %}
+    
+    
+    
+    <p>  <img src="{% static 'Img/Chooser_preview.png' %}">  </p> 
+    <!-- 상단(로고, 주제) -->
+    <h1>케이크 맛있게 먹는 법!!</h1>
+
+    <!-- 정렬 -->
+    <!-- <select>
+        <option>랜덤 순</option>
+        <option>조회 높은 순</option>
+        <option>최신 순</option>
+        <option>오래된 순</option>
+    </select> -->
+
+    <!-- 인기목록 -->
+    <!-- <p>인기목록입니당</p> -->
+    
+    <!-- 목록 -->
+    <h3>목록</h3>
+
+    {% for prefer in posts %}
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{ prefer.prefer_file.url }}" alt="{% static 'Img/Chooser_preview.png' %}">
+          <div class="card-body">
+            <h4 class="card-title">{{prefer.prefer_member_id}}</h4>
+            <p class="card-text">{{prefer.prefer_title}}</p>
+            <p class="card-text">{{prefer.prefer_content}}</p>
+            <p class="card-text">{{prefer.prefer_date|date:"Y.m.d"}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'prefer_detail' prefer.prefer_id %}">
+              <div class="btn btn-primary">
+                자세히 보기!
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    <div class="make_prefer_index">
+    {% comment %} {{%  %}} {% endcomment %}
+    </div>
+
+    <!-- 페이지네이션 -->
+    <!-- https://imyeonn.github.io/blog/blog/142/ -->
+    <!-- 시간 남으면 위의 코드 참조 이쁘게 꾸미기 -->
+    <div class="prefer_pagination">
+      <!-- 이전 페이지(True일 시) 불러오기 -->
+      {% if posts.has_previous %}
+      <a href="?page=1">맨 앞으로</a>
+      <a href="?page={{posts.previous_page_number}}">이전으로</a>
+      {% endif %}
+
+      <!-- 현재&총 페이지 넘버 불러오기 -->
+      <span>{{posts.number}}</span>
+      <span>/</span>
+      <span>{{posts.paginator.num_pages}}</span>
+
+      <!-- 다음 페이지(True일 시) 불러오기-->
+      {% if posts.has_next %}
+      <a href="?page={{posts.next_page_number}}">다음으로</a>
+      <a href="?page={{posts.paginator.num_pages}}">맨 뒤로</a>
+      {% endif %}
+    </div>>
+</body>
+</html>

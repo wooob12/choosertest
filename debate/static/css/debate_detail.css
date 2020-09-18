@@ -1,0 +1,32 @@
+
+
+h1{
+    text-align: center;
+    font-weight: bold;
+    /* 헤드폰트는 배달의민족 한나? */
+    font-family: "Times New Roman";
+    font-size: 6rem;
+    color: black;
+}
+
+
+@font-face { font-family: 'some'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') 
+    format('woff'); 
+    font-weight: normal; 
+    font-style: normal; }
+
+/* top - 로고 및 subtitle */
+.top {text-align: center; margin-bottom: 5vh;}
+.top .subtitle { font-family: "some"; font-size: 3vh;}
+
+/* 중간 이미지 */
+.img_d{text-align: center;}
+
+
+/* 결과 출력부분 */
+#result {text-align: center;}
+.chart {
+    text-align: center;
+}
+canvas {background-color: #DC6B43;}

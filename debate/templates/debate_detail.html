@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href="{% static 'css/debate_detail.css' %}">
+    
+    <title>Chooser - 토론</title>
+</head>
+<body>
+    <!-- 상단(로고, 주제) -->
+    <h1>이것! 저것! 둘 중 하나!</h1>
+
+    <!-- 글 내용 -->
+    <div class = "img_d">
+        <img id="left_img" src="{{ debate.debate_img1.url }}" width="40%" height="40%" style="margin-right:30px;">
+        <img id="right_img" src="{{ debate.debate_img2.url }}" width="40%" height="40%" style="margin-right:30px;">
+    </div>
+    <div id="debate_name">
+        
+    </div>
+    <div id="result">
+         0% : 0% 
+    </div>
+    <div class="chart">
+        <canvas id="canvas" width="500px" height="30px"></canvas>
+    </div>
+
+    <a href="{% url 'debate_index' %}">
+        <div>
+            <button>글 목록</button>
+        </div>
+    </a>
+     <!-- 댓글기능 -->
+    <br>
+    <!-- create_comment url 문제 -->
+    {% comment %}
+    {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'debate_create_comment' my_debate.debate_id %}">
+        {% csrf_token %}
+        {{debate_comment_form}}
+        <input type="submit" value="댓글달기!">
+        </form>
+    {% endif %}
+    {% endcomment %}
+
+<!-- 댓글 수정&삭제 -->
+{% for comment_debate in my_debate.comment_debate_set.all %}
+
+<p>
+    {{comment_debate.com_deb_member_id}} 🤦‍♂️ {{comment_debate.com_deb_content}}
+    {% if user == comment_debate.com_deb_member_id %}
+    {% comment %} <a href="{% url 'debate_update_comment' my_debate.debate_id comment_debate.com_deb_id %}"> 
+       
+        <button>수정</button>
+    </a> {% endcomment %}
+    <a href="{% url 'debate_delete_comment' my_debate.debate_id comment_debate.com_deb_id %}">    
+        <button>삭제</button>
+    </a>
+    {% endif %}
+</p>
+
+{% endfor %}
+</body>
+
+{% comment %} <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script> {% endcomment %}
+<script type="text/javascript">
+    const img_name1 = "{{ debate.debate_img1_name1 }}";
+    const img_name2 = "{{ debate.debate_img2_name2 }}";
+</script>
+<script type="text/javascript" src="{% static 'js/graph_ok.js' %}"></script>
+
+</html>

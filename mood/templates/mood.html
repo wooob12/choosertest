@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mood.css' %}">
+    <title>MOOD</title>
+
+</head>
+<body>
+    <div class="all">
+    <a href="{% url 'to_main' %}" class="main_logo_warper">
+    <img src="{% static 'Img/test.jpg' %}" class="main_logo">
+    </a> 
+   
+    <div class="mood-day">
+        <div class='mood-slider-wrap'>
+        <input name="mood-slider" id="slider-fill" type="range" min="0" max="100" step="1" value="50"
+            data-highlight="true">
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{mood_form.as_p}}
+            <input type="submit" value="제출">
+        </form>
+    </div>
+</div>
+    <script type="text/javascript" src="{%static 'js/feel.js'%}"> </script>
+</body>
+
+
+</html> 

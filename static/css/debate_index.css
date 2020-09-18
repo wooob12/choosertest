@@ -1,0 +1,93 @@
+h1{
+    text-align: center;
+    font-weight: bold;
+    /* 헤드폰트는 배달의민족 한나? */
+    font-family: "Times New Roman";
+    font-size: 6rem;
+    color: red;
+}
+
+h3{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Times New Roman";
+    font-size: 5rem;
+    color: black;
+}
+
+.big_box_01{
+    display:inline-flex;
+    text-align: center;
+}
+
+.box_debate_all_01{
+    width: 200px;
+    height: 225px;
+    border-width: medium;
+    border-color: black;
+    border-style: solid;
+    margin: 10px;
+    padding: 3px;
+    background-color: rgba(92, 92, 92, 0.3);
+}
+
+.debate_img_all{
+    box-sizing: border-box;
+    display:inline-flex;
+    padding: 0;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+}
+
+.big_title_debate_01{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.title_debate_01{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Times New Roman";
+    font-size: 1rem;
+    color: black;
+}
+
+.debate_preview{
+    height: 180px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    
+}
+
+.big_left_img{
+    overflow: hidden;
+    text-align: center;
+    width: 90px;
+    height: 180px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.big_right_img{
+    overflow: hidden;
+    text-align: center;
+    width: 90px;
+    height: 180px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+/* 페이지네이션 */
+.debate_pagination{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Times New Roman";
+    font-size: 1rem;
+    color: black;
+}
