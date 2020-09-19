@@ -40,12 +40,15 @@
             <div class="col-4 pt-1">
                 <div class="dropdown">
                     <button class="dropbtn">
+                    <div class="dropdown-label">
+
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                         </svg>
-                        MENU
+                        <div class="dropdown-title">MENU</div>
+                    </div>
                     </button>
                     <div class="dropdown-content">
                         <a class="text-muted" href="#">
@@ -99,7 +102,7 @@
                     <a href="{% url 'logout' %}">
                         <button>로그아웃</button>
                     </a>
-                    안녕하세요! {{ user }}님!
+                    <div class="login-label">[{{ user }}님! 오늘도 함께해요!]</div>
                     <!-- 로그인이 되지 않은 경우 -->
                     {% else %}
                     <a href="{% url 'signup' %}">

@@ -1,16 +1,36 @@
-<h1>Login</h1>
+{% extends 'base.html' %}
+{% load static %}
 
-<form method="POST" action="{% url 'login'%}">
-
-    {% csrf_token %}
-    Username:
-    <br>
-    <input name="username" type="text" value="">
-    <br>
-    Password:
-    <br>
-    <input name="password" type="password" value="">
-    <br>
-    <br>
-    <input class="btn btn-primary" type="submit" value="Login">
-</form>
+{% block title %}LOGIN{% endblock %}
+{% block link %}{% static 'css/login.css' %}{% endblock %}
+<!-- social login static -->
+{% load socialaccount %}
+{% providers_media_js %}
+{% block content %}
+<div class="login-block">
+    <div class="login-content">
+        <div class="login-label">LOGIN</div>
+        <div class="social-login-content">
+            <a href=" {% provider_login_url 'google' %}">
+                <button class="btn-social-login-google">GOOGLE</button>
+            </a>
+            <a href=" {% provider_login_url 'naver' %}">
+                <button class="btn-social-login-naver">NAVER</button>
+            </a>
+        </div>
+        <form class="login" method="POST" action="{% url 'login'%}">
+            {% csrf_token %}
+            USERNAME
+            <input name="username" type="text" value="">
+            <br>
+            PASSWARD
+            <input name="password" type="password" value="">
+            <br>
+            <br>
+        <div>
+            <button class="btn-login" type="submit" value="Login">LOGIN</button>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

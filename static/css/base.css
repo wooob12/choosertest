@@ -1,39 +1,27 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* a태그 속성 없애기 */
 a{  
     text-decoration: none;
 }
 
 html, body{
+   font-family: 'Nanum Gothic', sans-serif;
     margin: 0;
     padding:0;
 }
 /* 내용에만 padding을 줌 */
 main{
-    padding:3rem;
+    padding:0;
     float: center;
 }
 
 /* navbar */
-#navbar{
-    background-color:#63A6CC;
-
-    display: flex;
-    justify-content: space-between;
+.main_logo {
+  width: 438.5px;
+  height: 211.5px;
+  text-align: center;
 }
-/* navbar_제목 */
-.title_label{
-    /* margin */
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 10px;
 
-    /* 정렬 */
-    display: flex;
-
-    font-family: 'Lucida Sans';
-    color: white;
-    font-size: 25px;
-}
 /* navbar_로그인부분 */
 #login{
     margin-top: 2rem;
@@ -43,7 +31,6 @@ main{
     display : flex;
     text-align: right;
 
-    color: white;
 }
 
 #login button{
@@ -51,5 +38,62 @@ main{
     border-color: black;
     border: none;
 
+    /* 여백 */
+    margin : 2px;
+
+    /* font */
+    color : #63A6CC;
+
     background-color: white;
+}
+
+.login-label{
+  font-family: 'Nanum Gothic', sans-serif;
+    color:#63A6CC;
+}
+
+/* 드롭다운 */
+.dropbtn {
+  background-color: white;
+  color: #63A6CC;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  left: -980%;
+  top: 30px;
+}
+.dropdown-label{
+  color: #63A6CC;
+}
+.dropdown-title{
+  color: #63A6CC;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: lightyellow;
 }
