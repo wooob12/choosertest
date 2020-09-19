@@ -1,3 +1,67 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+.all_deb_detail{
+    text-align: center;
+    flex-wrap: wrap;
+    align-content: stretch;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.main_logo {
+    width: 438.5px;
+    height: 211.5px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.big_debate_img{
+    font-size: 0;
+    text-align: center;
+}
+
+.left_img {
+    display: inline-block;
+    margin: 10px;
+    margin-bottom: 0;
+    padding: 0px;
+    border-color: rgb(116, 164, 253);
+    border-width: 5px;
+    border-style: solid;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.right_img {
+    display: inline-block;
+    margin: 10px;
+    margin-bottom: 0;
+    padding: 0px;
+    border-color:  rgb(230, 82, 82);
+    border-width: 5px;
+    border-style: solid;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.debate_title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.button {
+    margin: 20px;
+}
 
 @font-face { font-family: 'some'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') 
@@ -18,4 +82,8 @@
 .chart {
     text-align: center;
 }
-canvas {background-color: #DC6B43;}
+canvas {
+    background-color: rgb(230, 82, 82);
+    color: #74a4fd;
+    margin: 10px;
+}

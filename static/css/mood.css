@@ -1,4 +1,163 @@
-body {
-    display: flex;
-    justify-content: center;
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.dropbtn {
+  background-color: white;
+  color: #63A6CC;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}/*누나 그거 그냥 해놔본거에요 끝났나요???*/
+/* 뭘해본거야? 사진은 넣었는데 누가 드롭다운 만졌는지 안보이는데? */
+/* ???저는 누나꺼 배껴온건데요?? 전잘 나와요 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: lightyellow;
+}
+
+html{
+    
+    /* position: absolute;
+    margin-right: 10px; */
+    width: 98.7vw;
+    height: 97vh;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    margin: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+    align-content: stretch;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* .all{
+    margin: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+    align-content: stretch;
+    /* position: fixed;
+    left: 20px;
+    top: 50px;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+     */
+
+
+
+
+/* #mood-slider{
+    block-size: 100px;
+} */
+.main_logo{
+    width: 438.5px;
+    height: 211.5px;
+    margin: 30px;
+}
+
+.mood-slider-wrap{
+    /* opacity: 10%; */
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2D74A3;
+    width: 40%;
+    height: 16px ;
+    background-color:#3C9BDB;
+    border-radius: 15px;
+    display: inline-flex;
+    text-align: center;
+    box-sizing : border-box;
+    margin-top: 100px;
+}
+
+#slider-fill {
+    width: 100%;
+    background-color: transparent;
+    -webkit-appearance: none;
+    
+  }
+
+#slider-fill:focus {
+    outline: none;
+  }
+.form-warp{
+    font-size: 0%;
+}
+#some{
+    text-align: center;
+    font-size: 3rem;
+    width: 100px;
+    height: 70px;
+    /* padding: 1px 2px; */
+    margin: 50px;
+    box-sizing: border-box;  
+    border-style: unset;
+}
+
+#result-box-b{
+    text-align: center;
+    font-size: 3rem;
+    width: 80%;
+    height: 70px;
+    /* padding: 1px 2px; */
+    margin: 50px;
+    box-sizing: border-box;  
+    border-style: unset;
+}
+#result-box-b:focus{
+    outline: none;
+}
+
+#content-box{
+    text-align: center;
+    font-size: 3rem;
+    width: 80%;
+    height: 70px;
+    /* padding: 1px 2px; */
+    margin: 50px;
+    box-sizing: border-box;  
+    border-style: unset;
+}
+.submit{
+    font-size: 25px;
+    background-color: #3C9BDB;
+    border-style: solid;
+    border-width: thick;
+    border-color: #2D74A3;
+    border-radius: 20px;
+    color: black;
+    padding: 19px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+h1{
+    color: black;
 }
