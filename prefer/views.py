@@ -14,7 +14,7 @@ def prefer_index(request):
     # 페이지네이션
     prefers = Prefer.objects
     prefer_list = Prefer.objects.all()
-    paginator = Paginator(prefer_list, 5)
+    paginator = Paginator(prefer_list, 3)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     return render(request, 'prefer_index.html', {'all_prefer':all_prefer, 'prefers':prefers, 'posts':posts})

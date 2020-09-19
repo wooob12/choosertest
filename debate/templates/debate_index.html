@@ -5,16 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/debate_index.css'%}">
+    <link rel="stylesheet" href="{% static 'css/debate_index.css' %}">
     <title>Chooser - 토론 목록</title>
 
-    <div class="make_debate">
+    <!-- <div class="make_debate">
         <a href="{% url 'debate_create' %}">
         <div class="plus_btn">
             <button>글쓰기</button>
         </div>
         </a>
-    </div>
+    </div> -->
 
 
     {% comment %} bootstrap {% endcomment %}
@@ -25,7 +25,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="all_deb_index">
     <!-- 상단(로고, 주제) -->
+    <a href="{% url 'to_main' %}" class="main_logo_warper">
+        <img src="{% static 'Img/logo.png' %}" class="main_logo">
+    </a> 
     <h1>이것! 저것! 둘 중 하나!</h1>
 
     <!-- 정렬 -->
@@ -41,24 +45,23 @@
     <h3>골라골라!!</h3>
 
     {% for debate in posts %}
-    <div class="big_box_01">
-        <div class="box_debate_all_01">
-            <a href="{% url 'debate_detail' debate.debate_id %}">
-                <div class="box2">
-                    <div class="debate_img_all">
-                        <div class="big_left_img">
-                        <img class="left_img" src="{{ debate.debate_img1.url }}">
-                        <img class="right_img" src="{{ debate.debate_img2.url }}">
+    <a href="{% url 'debate_detail' debate.debate_id %}">
+        <div class="big_box">
+            <div class="small_box">
+                <div class="preview_all">
+                    <div class="big_preview">
+                    <img class="preview" src="{{ debate.debate_img1.url }}">
                     </div>
-                    <div class="box-content">
-                        <div class="inner-content">
-                            <p class="title_debate_01">{{debate.debate_img1_name1}} vs {{debate.debate_img2_name2}}</p>
-                        </div>
+                    <div class="big_preview">
+                    <img class="preview" src="{{ debate.debate_img2.url }}">
                     </div>
                 </div>
-            </a>
+                <div class="big_title">
+                    <p class="title">{{debate.debate_img1_name1}} vs {{debate.debate_img2_name2}}</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </a>
     {% endfor %}
 
     {% comment %} 버튼 {% endcomment %}
@@ -82,5 +85,6 @@
         <a href="?page={{posts.paginator.num_pages}}">맨 뒤로</a>
         {% endif %}
     </div>
+</div>
 </body>
 </html>

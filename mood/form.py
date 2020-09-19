@@ -13,7 +13,8 @@ class MoodForm(forms.ModelForm):
 
          self.fields['mood_val'].widget.attrs.update({
             "id" : 'some',
-             "placeholder":'50'
+            "placeholder":'50',
+            "label": '수치',
          })
          self.fields['mood_state'].widget.attrs.update({
              "id" :'result-box-b',

@@ -8,15 +8,25 @@
     <title>Chooser - 취향소개 글쓰기</title>
 </head>
 <body>
+<div class="all_pre_create">
     <!-- 상단(로고, 주제) -->
-    <h1>케이크 맛있게 먹는 법!!</h1>
+    <a href="{% url 'to_main' %}" class="main_logo_warper">
+        <img src="{% static 'Img/logo.png' %}" class="main_logo">
+    </a>
+    <!-- 주제: {{topic_content}} -->
+    <h1>금주의 주제: 라면 끼리는 법!!!!!!</h1>
+    <h3>※주의할 점※</h3>
+    <h4>이미지를 꼭 첨부해주세요 >_0<h4>
+    <p>안 그러면 에러남 ㅠㅡㅜ....<p>
 
     <!-- 제목&내용&버튼 -->
+    <div class="create_prefer">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{prefer_form.as_p}}
         <input type="submit" value="확인">
     </form>
 
+</div>
 </body>
 </html>

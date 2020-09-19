@@ -25,7 +25,7 @@ let right_per = 50; //오른쪽
 
 function result_view(){
     result_per();
-    document.getElementById("result").innerHTML= img_name1 + left_per +"% : " + img_name2 + right_per + "%";
+    document.getElementById("result").innerHTML= img_name1+" " + left_per +"% : " + img_name2+" " + right_per + "%";
 }
 
 function result_per(){
@@ -45,7 +45,7 @@ function draw() {
     if (canvas.getContext) {
       var ctx = canvas.getContext('2d');
       //색 정하는 코드  
-      ctx.fillStyle = "#5798D5";
+      ctx.fillStyle = "#74a4fd";
       ctx.fillRect(0, 0, left_per*5, 30);
     }
 }

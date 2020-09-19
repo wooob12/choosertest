@@ -12,7 +12,7 @@ def debate_index(request):
     all_debate = Debate.objects.all()
     debates = Debate.objects
     debate_list = Debate.objects.all()
-    paginator = Paginator(debate_list, 5)
+    paginator = Paginator(debate_list, 6)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     return render(request, 'debate_index.html', {'all_debate':all_debate, 'debates':debates, 'posts':posts})
@@ -21,8 +21,6 @@ def my_debate_index(request):
     my_debate = Debate.objects.filter(debate_member_id=request.user)
     return render(request, 'debate_index.html', {'my_debate':my_debate})
 
-# 슈퍼유저만 글 작성 가능하게?
-# 그쵸그쵸
 @login_required(login_url='/login')
 def debate_create(request):
     if request.method == "POST":

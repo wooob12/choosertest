@@ -7,26 +7,33 @@
   <meta name="viewport" content="width=device-width">
   <!-- <link rel="stylesheet" href="{%static 'css/month.css'%}"> -->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <title>Vanilla Coding | Bootcamp Prep</title>
+  <link rel="stylesheet" href="{% static 'css/month.css' %}">
+  <title>Mood_of_Month</title>
 </head>
 
 <body>
   <div class="main">
+    <a href="{% url 'to_main' %}" class="main_logo_warper">
+      <img src="{% static 'Img/logo.png' %}" class="main_logo">
+  </a> 
     <div class="content-wrap">
       <div class="content-left">
         <div class="main-wrap">
+
           <div id="mood_val_warp" class="mood_val_warp">
-            기분의 수치 : <div id="mood_val" class="mood_val"></div>
+            기분의 수치 : <span  id="mood_val" class="mood_val">100%</span>
           </div>
+<br>
           <div id="mood_name_warp" class="mood_name_warp">
-            기분의 이름 : <div id="mood_name" class="mood_name"></div>
+            기분의 이름 : <span  id="mood_name" class="mood_name">좋았겠져...?</span>
           </div>
+          <br>
           <div id="mood_content_warp" class="mood_content_warp">
-            기분의 내용 : <div id="mood_content" class="mood_content"></div>
+            기분의 내용 : <span  id="mood_content" class="mood_content">좋았을 거야...........</span>
           </div>
         </div>
       </div>
-    </div>
+    
     <div class="content-right">
       <table id="calendar" align="center">
         <thead>

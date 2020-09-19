@@ -1,0 +1,44 @@
+.signup-block{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+}
+.signup-content{
+    /* 위치 */
+    margin:0 auto; /*<---가운데로 배치 시켜줌*/
+
+    /* 크기 */
+    width: 50vw;
+    height: 50vh;
+
+    /* 둘레 */
+    border: solid 2px #63A6CC;
+    border-radius:  5px;
+}
+
+.signup-label, .signup{
+    margin : 1em;
+}
+
+.signup-label{
+    text-align: center;
+
+    /* font */
+    font-size: 2em; 
+
+}
+.btn-signup {
+    /* 위치 */
+    float: right;
+
+    border-radius: 5px;
+    border: None;
+
+    width: 15vw;
+    height: 5vh;
+
+    color: white;
+    background-color:  #63A6CC;
+}

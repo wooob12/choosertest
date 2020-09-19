@@ -8,41 +8,44 @@
     <title>Chooser - 취향</title>
 </head>
 <body>
+<div class="all_pre_detail">
     <!-- 상단(로고, 주제) -->
+    <a href="{% url 'to_main' %}" class="main_logo_warper">
+        <img src="{% static 'Img/logo.png' %}" class="main_logo">
+    </a>
     <!-- 주제: {{topic_content}} -->
+    <h1>금주의 주제: 라면 끼리는 법!!!!!!</h1>
 
-    <!-- 제목 -->
-    <br>
-    제목: {{my_prefer.prefer_title}}
-    <br>
-    작성자: {{my_prefer.prefer_member_id}}
-    <br>
-    {% comment %} 글 사진 {% endcomment %}
-    <img src="{{ my_prefer.prefer_file.url }}" >
-    <br>
-    <!-- 글 내용 -->
-    내용: {{my_prefer.prefer_content}}
-    <br>
-    {{my_prefer.prefer_date|date:"Y.m.d"}}
-    <br>
+    <!-- 내용 -->
+    <p>제목: {{my_prefer.prefer_title}}</p>
+    <p>작성자: {{my_prefer.prefer_member_id}}</p>
+    <div class="img_prefer">
+        <p>
+            <img src="{{ my_prefer.prefer_file.url }}" >
+        </p>
+    </div>
+    <p>{{my_prefer.prefer_content}}</p>
+    <p>{{my_prefer.prefer_date|date:"Y.m.d"}}</p>
 
     
-    <!-- 좋아요 기능 -->
-    <button>좋아요</button>
+    <!-- 버튼 -->
+    <!-- <button>좋아요</button> -->
     {% if user == my_prefer.prefer_member_id %}
-    <a href="{% url 'prefer_update' my_prefer.prefer_id %}"><button>수정</button></a>
-    <a href="{% url 'prefer_delete' my_prefer.prefer_id %}"><button>삭제</button></a>
+        <a href="{% url 'prefer_update' my_prefer.prefer_id %}"><button>수정</button></a>
+        <a href="{% url 'prefer_delete' my_prefer.prefer_id %}"><button>삭제</button></a>
     {% endif%}
-    <a href="{% url 'prefer_index' %}"><button>목록</button></a>
+    <div class="button">
+        <a href="{% url 'prefer_index' %}"><button>목록</button></a>
+    </div>
 
     <!-- 댓글기능 -->
     <br>
     <!-- create_comment url 문제 -->
     {% if user.is_authenticated %}
         <form method="POST" action="{% url 'prefer_create_comment' my_prefer.prefer_id %}">
-        {% csrf_token %}        
-        {{prefer_comment_form}}
-        <input type="submit" value="댓글달기!">
+            {% csrf_token %}        
+            {{prefer_comment_form}}
+            <input class="button" type="submit" value="댓글달기!">
         </form>
     {% endif %}
 
@@ -58,9 +61,11 @@
        
         <button>수정</button>
     </a> {% endcomment %}
-    <a href="{% url 'prefer_delete_comment' my_prefer.prefer_id comment_prefer.com_pre_id %}">    
-        <button>삭제</button>
-    </a>
+    <div class="button">
+        <a href="{% url 'prefer_delete_comment' my_prefer.prefer_id comment_prefer.com_pre_id %}">    
+            <button>삭제</button>
+        </a>
+    </div>
     {% endif %}
 </p>
 
@@ -73,3 +78,6 @@
     {% comment %} <br>
     <textarea cols="50" rows="2" name="fulltext" placeholder="댓글을 입력하세요!"></textarea>
     <button>댓글달기</button> {% endcomment %}
+</div>
+</body>
+</html>

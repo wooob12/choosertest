@@ -1,25 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
 
-<h1>Sign Up!</h1>
+{% block title %}LOGIN{% endblock %}
+{% block link %}{% static 'css/signup.css' %}{% endblock %}
 
-<form method="POST" action="{% url 'signup'%}">
+{% block content %}
+<div class="signup-block">
+    <div class="signup-content">
+        <div class="signup-label">
+            SIGN UP
+        </div>
+        <div class="signup">
+            <form method="POST" action="{% url 'signup'%}">
+                {% csrf_token %}
+                Email
+                <input name="email" type="text" value="">
+                <br>
+                Username
+                <input name="username" type="text" value="">
+                <br>
+                Password
+                <input name="password1" type="password" value="">
+                <br>
+                Confirm Password
+                <input name="password2" type="password" value="">
+                <br>
+                <br>
+                <div>
+                    <button class="btn-signup" type="submit" value="Login">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<h1></h1>
 
-    {% csrf_token %}
-    Email:
-    <br>
-    <input name="email" type="text" value="">
-    <br>
-    Username:
-    <br>
-    <input name="username" type="text" value="">
-    <br>
-    Password:
-    <br>
-    <input name="password1" type="password" value="">
-    <br>
-    Confirm Password:
-    <br>
-    <input name="password2" type="password" value="">
-    <br>
-    <br>
-    <input class="btn btn-primary" type="submit" value="Sign Up!">
-</form>
+
+
+{% endblock %}
